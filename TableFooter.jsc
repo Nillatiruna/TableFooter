@@ -1,0 +1,32 @@
+import { TableShownItems } from './components/TableShownItems';
+import { Pagination } from '../../UI/Pagination/Pagination';
+import { TableShowBy } from './components/TableShowBy';
+import classes from './TableFooter.module.css';
+
+export const TableFooter = ({
+  pages,
+  page,
+  setPage,
+  showBy,
+  setShowBy,
+  length
+}) => {
+  return (
+    <div className={classes.tableFooter}>
+      <TableShownItems showBy={showBy} page={page} length={length} />
+      <div className={classes.paginationBox}>
+        <Pagination
+          className={classes.pagination}
+          pages={pages}
+          page={page}
+          setPage={setPage}
+        />
+      </div>
+      <TableShowBy
+        showBy={showBy}
+        setShowBy={setShowBy}
+        className={classes.showBy}
+      />
+    </div>
+  );
+};
